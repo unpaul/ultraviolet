@@ -1,0 +1,12 @@
+name: Ultraviolet
+main: me.pavl.ultraviolet.Main
+description: nothing
+version: 1.0
+author: Pavl
+commands:
+  uv:
+    aliases: [ultraviolet]
+  punish:
+    aliases: [p, ban, mute, pardon, unban, unmute]
+  history:
+    aliases: [hist]

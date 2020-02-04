@@ -1,0 +1,77 @@
+MYSQL:
+  punishment_data:
+    host: localhost
+    port: 3306
+    database: test
+    username: root
+    password: test
+  permission_data:
+    host: localhost
+    port: 3306
+    database: test
+    username: root
+    password: test
+  pref_data:
+    host: localhost
+    port: 3306
+    database: test
+    username: root
+    password: test
+Chat:
+  cooldown:
+    active: false
+    time: 0
+    issuer: 'null'
+Groups:
+  default:
+    permissions:
+    - uv.self
+  FORUM_REPORTS:
+  - uv.forumreports
+  STAFF_MANAGEMENT:
+  - uv.staffreports
+  HELPER:
+    permissions:
+    - uv.self
+    - uv.punish
+    - uv.rank.helper
+  MODERATOR:
+    permissions:
+    - uv.self
+    - uv.others
+    - uv.punish
+    - uv.rank.mod
+    - uv.rank.helper
+  SENIOR_MODERATOR:
+    permissions:
+    - uv.self
+    - uv.others
+    - uv.punish
+    - uv.rank.helper
+    - uv.rank.mod
+    - uv.rank.srmod
+  ADMINISTRATOR:
+    permissions:
+    - uv.self
+    - uv.selfadmin
+    - uv.others
+    - uv.othersadmin
+    - uv.punish
+    - uv.punishadmin
+    - uv.rank.helper
+    - uv.rank.mod
+    - uv.rank.srmod
+    - uv.rank.admin
+  OWNER:
+    permissions:
+    - uv.self
+    - uv.selfadmin
+    - uv.others
+    - uv.othersadmin
+    - uv.punish
+    - uv.punishadmin
+    - uv.rank.helper
+    - uv.rank.mod
+    - uv.rank.srmod
+    - uv.rank.admin
+    - uv.rank.owner
