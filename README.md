@@ -11,8 +11,8 @@ Minecraft Spigot Plugin:
 ![github-large](https://cdn-std.droplr.net/files/acc_606547/3iRVTz)
 
 ==== Commands ====
-/uv : opens myUV menu
-/uv <client> : open's clientUV menu
+- /uv : opens myUV menu
+- /uv <client> : open's clientUV menu
 /uv ff <radius> : sets moveUV radius to bounce away players
 /uv bc <msg> : broadcast
 /uv sbc <msg> : staff broadcast
