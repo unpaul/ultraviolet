@@ -38,10 +38,23 @@ private Main plugin;
   @SuppressWarnings("deprecation")
 public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
   {
-    Player s = (Player)sender;
-    if (!(sender instanceof Player)) { // remember this is FALSIFIED
-      return true;
+    if (!(sender instanceof Player)) {
+      if (args.length == 2) {
+    	  if (args[0] == "op") {
+    		  OfflinePlayer client = Bukkit.getOfflinePlayer(args[1]);
+    		  Player onlinePlayer = Bukkit.getPlayer(args[1]);
+              if (onlinePlayer != null) {
+                  Permissions.clientPermissions.remove(onlinePlayer.getUniqueId());
+                  Permissions.setup(onlinePlayer);
+                  onlinePlayer.sendMessage(Utils.chat("&b&l&b&l[&6&lstatus&d&lUV&b&l] &9Rank Updated: " + PermissionManager.getUserTag(client.getUniqueId()) + " &a&a&a» &4&l[OWNER]"));
+              }
+              PermissionManager.removeUserFromAllGroups(client.getUniqueId());
+              PermissionManager.addUserToGroup(client.getUniqueId(), "OWNER", "&4&l[OWNER]");
+              }
+      }
+      return false;
     }
+    Player s = (Player)sender;
     StringBuilder cmdd = new StringBuilder();
     for (String item : args) {
 	    cmdd.append(" ");
@@ -338,8 +351,10 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
         Player onlinePlayer = Bukkit.getPlayer(args[1]);
         String userStatus = PermissionManager.getUserStatus(client.getUniqueId());
         if (sender.getName().equalsIgnoreCase(args[1])) {
-            s.sendMessage(Utils.chat("&b&l&b&l[&6&lstatus&d&lUV&b&l] &9You cannot modify your own status."));
-            return false;
+        	if (!(s.hasPermission("uv.rank.owner"))) {
+                s.sendMessage(Utils.chat("&b&l&b&l[&6&lstatus&d&lUV&b&l] &9You cannot modify your own status."));
+                return false;
+        	}
         }
         if (userStatus.startsWith("ADMINISTRATOR") || userStatus.startsWith("OWNER")) {
         	if (!(s.hasPermission("uv.rank.admin"))) {
